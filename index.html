@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dev Payment Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        vscode: {
+                            bg: '#1a1b26',         // Tokyo Night BG
+                            sidebar: '#16161e',    // Darker Sidebar
+                            activity: '#1a1b26',   
+                            header: '#16161e',     
+                            border: '#292e42',     
+                            fg: '#c0caf5',         // Text
+                            comment: '#565f89',    // Comments
+                            keyword: '#bb9af7',    // Purple
+                            function: '#7aa2f7',   // Blue
+                            string: '#9ece6a',     // Green
+                            number: '#ff9e64',     // Orange
+                            class: '#e0af68',      // Yellow
+                            tag: '#f7768e',        // Red
+                            operator: '#89ddff',   // Cyan
+                            selection: '#283457',
+                            lineHighlight: '#292e42',
+                            terminal: '#1a1b26'
+                        }
+                    },
+                    animation: {
+                        'cursor': 'cursor 1s infinite step-end',
+                        'scan': 'scan 2s linear infinite',
+                        'typewriter': 'typing 3s steps(40, end)',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        cursor: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(100%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        },
+                        typing: {
+                            from: { width: '0' },
+                            to: { width: '100%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f0f14;
+            background-image: radial-gradient(circle at 50% 50%, #1a202c 0%, #0f0f14 100%);
+            color: #c0caf5;
+            font-family: 'JetBrains Mono', monospace;
+            overflow: hidden;
+        }
+        
+        /* Scrollbar like VS Code */
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: #1a1b26; }
+        ::-webkit-scrollbar-thumb { background: #292e42; border-radius: 0px; }
+        ::-webkit-scrollbar-thumb:hover { background: #414868; }
+
+        .line-numbers {
+            user-select: none;
+            counter-reset: line;
+        }
+        .line-number {
+            counter-increment: line;
+            color: #565f89;
+            text-align: right;
+            padding-right: 16px;
+            display: block;
+            font-size: 13px;
+            line-height: 1.5rem;
+        }
+        .line-number::before {
+            content: counter(line);
+        }
+
+        /* Glowing effect behind the window */
+        .glow-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(122, 162, 247, 0.05), transparent 40%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

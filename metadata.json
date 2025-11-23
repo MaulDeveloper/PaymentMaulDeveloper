@@ -1,0 +1,5 @@
+{
+  "name": "Toko Keren Payment",
+  "description": "A premium, modern checkout experience for Toko Keren supporting DANA and QRIS payments with automated Telegram proof reporting.",
+  "requestFramePermissions": []
+}
